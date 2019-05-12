@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="{% static 'css/reset.min.css' %}">	
+	<link rel="stylesheet" href="{% static 'css/base.css' %}">
+	{% block stylesheet %}
+
+	{% endblock %}
+	<title>
+		{% block title %}
+			Title
+		{% endblock %}
+	</title>
+</head>
+<body>
+	<header>
+		<nav>
+			<ul class='menu'>
+				<li><a href="{% url 'blog_page_url' %}">Blog</a></li>
+				<li><a href="{% url 'blog_page_url' %}">Posts</a></li>
+				<li><a href="{% url 'tags_list_url' %}">Tags</a></li>
+				<li><a href="#">Disabled</a></li>
+			</ul>
+		</nav>
+		<div>
+			<form action="#" id='search'>
+				<input type="text" name="" placeholder="Search">
+				<button>Search</button>
+			</form>
+		</div>
+	</header>
+
+
+	{% block content %}
+		None content
+	{% endblock %}
+	
+</body>
+</html>	

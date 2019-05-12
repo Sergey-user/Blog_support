@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'css/post_card_template.css' %}">
+<link rel="stylesheet" href="{% static 'css/blog_page.css' %}">
+{% endblock %}
+
+{% block title %}
+	Blog
+{% endblock %}
+
+
+
+{% block content %}
+	<section class='posts_list'>
+		<h2>Posts:</h2>
+			{% for post in posts %}
+				{% include 'blog/includes/post_card_template.html' %}
+			{% endfor %}
+	</section>
+{% endblock %}

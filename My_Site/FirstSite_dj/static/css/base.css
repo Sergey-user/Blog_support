@@ -1,0 +1,44 @@
+
+
+header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 60px;
+	background: #d0f4ff;
+}
+
+
+.menu{
+	display: flex;
+	justify-content: space-around;
+	width: 500px;
+
+}
+
+.menu li{
+	list-style: none;
+}
+
+.menu a{
+	font-size: 30px;
+	text-decoration: none;
+	color: black;
+}
+
+#search input{
+	height: 25px;
+	width: 300px;
+}
+
+#search button{
+	/*box-sizing: border-box;*/
+	font-size: 17px;
+	height: 35px;
+	width: 80px;
+	background: #d0f4ff;
+	border: 1px solid green;
+	color: green;
+	border-radius: 5px;
+	
+}

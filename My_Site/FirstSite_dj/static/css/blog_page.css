@@ -1,0 +1,14 @@
+.posts_list{
+	display: flex;
+	width: 100%;
+	align-items: center;
+	flex-direction: column;
+}
+
+.posts_list h2{
+	font-size: 50px;
+	position: relative;
+	right: 140px;
+	margin-bottom: 30px;
+}
+

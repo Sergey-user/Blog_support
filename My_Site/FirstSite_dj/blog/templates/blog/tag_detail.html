@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+	<link rel="stylesheet" href="{% static 'css/tag_detail.css' %}">
+	<link rel="stylesheet" href="{% static 'css/post_card_template.css'%}">
+{% endblock %}
+
+{% block title %}
+	Tag posts
+{% endblock %}
+
+{% block content %}
+		
+	<section>
+		<h2>Posts with "{{ tag.title|title }}" tag:</h2>
+		
+		{% for post in tag.posts.all %}
+			{% include 'blog/includes/post_card_template.html '%}
+
+		{% endfor %}
+
+
+	</section>
+	
+{% endblock %}

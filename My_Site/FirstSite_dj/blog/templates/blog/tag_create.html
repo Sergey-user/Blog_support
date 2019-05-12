@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+<link rel="stylesheet" href="{% static 'css/tag&post_create.css' %}">
+{% endblock %}
+
+
+{% block title %}
+	Tag create
+{% endblock %}
+
+{% block content %}
+
+	<form action="{% url 'tag_create_url' %}" method="post">
+
+		{% csrf_token %}
+		<div class='form'>
+			{% for field in form %}
+			<div class='form-group'>
+				
+				{{ field.label }}
+				{{ field }}
+
+				{% if field.errors %}
+					<div class='danger'>
+						{{ field.errors }}
+					</div>		
+				{% endif %}
+			</div>
+
+			{% endfor %}
+				<button type='submit' class='btn btn-primary'>Create tag</button>
+		</div>
+	</form>
+
+
+
+
+
+
+{% endblock %}

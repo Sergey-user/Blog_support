@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'css/tags_list.css' %}">	
+{% endblock %}
+
+{% block title %}
+	Tags
+{% endblock %}
+
+
+{% block content %}
+	<section>
+	<h2>Tags:</h2>
+	<div class='tags_list'>
+	{% for tag in tags %}
+		<a href='{{ tag.get_absolute_url }}'>#{{ tag.title }}</a>
+	{% endfor %}
+	</div>
+	</section>
+{% endblock %}
