@@ -1,5 +1,5 @@
 
-from django.shortucts import render, redirect
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from .models import Post, Tag
