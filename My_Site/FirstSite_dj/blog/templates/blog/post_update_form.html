@@ -4,34 +4,43 @@
 
 {% block stylesheet %}
 <link rel="stylesheet" href="{% static 'css/tag&post_create.css' %}">
+<link rel="stylesheet" href="{% static 'css/post_create.css' %}">
 {% endblock %}
 
-{% block title %}
-	Tag "{{ tag.title }}" update
+
+{% block title%}
+	Tag create
 {% endblock %}
 
 {% block content %}
 
-	<form action="{{ tag.get_tagUpdate_url }}" method="post">
+	<form action="{{ post.get_update_url }}" method='post'>
 
 		{% csrf_token %}
-		<div class='form'>
-			{% for field in form %}
-			<div class='form-group'>
 
-				{{ field.label }}
+		<div class='form'>
+
+			{% for field in form %}
+
+			<div class="form-group">
+
+				{{ field.label }}:
 				{{ field }}
 
 				{% if field.errors %}
-					<div class='danger'>
-						{{ field.errors }}
-					</div>
+				<div class="danger">
+					{{ field.errors }}
+				</div>
 				{% endif %}
+
 			</div>
 
 			{% endfor %}
-				<button type='submit' class='btn btn-primary'>Update tag</button>
+
+			<button type='submit'>Update post</button>
+
 		</div>
+
 	</form>
 
 {% endblock %}

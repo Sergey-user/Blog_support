@@ -7,9 +7,9 @@
 			<h3>{{ post.title }}</h3>
 			<p>{{ post.body|truncatewords:5 }}</p>
 			<div class="links">
-			<a href="{{ post.get_absolute_url }}">Read</a>	
-			<a href="#">Update</a>
-			</div>		
+			<a href="{{ post.get_absolute_url }}">Read</a>
+			<a href="{{ post.get_update_url }}">Update</a>
+			</div>
 		</div>
 		<div class="post_footer">
 			<p>Tags:</p>

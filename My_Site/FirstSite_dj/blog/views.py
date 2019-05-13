@@ -29,6 +29,22 @@ class PostCreate(ObjectCreateMixin, View):
 	model_form = PostForm
 	template = 'blog/post_create.html'
 
+
+class PostUpdate(View):
+	def get(self, request, slug):
+		post = Post.objects.get(slug__iexact=slug)
+		bound_form = PostForm(instance=post)
+		return render(request, 'blog/post_update_form.html', context={'form': bound_form, 'post': post})
+
+	def post(self, request, slug):
+		post = Post.objects.get(slug__iexact=slug)
+		bound_form = PostForm(request.POST, instance=post)
+
+		if bound_form.is_valid():
+			update_tag = bound_form.save()
+			return redirect(update_tag)
+		return render(request, 'blog/post_update_form.html', context={'form': bound_form, 'post': post})
+
 class TagCreate(ObjectCreateMixin, View):
 
 	model_form = TagForm
@@ -37,7 +53,7 @@ class TagCreate(ObjectCreateMixin, View):
 
 class TagUpdate(View):
 	def get(self, request, slug):
-		tag = Tag.objects.get(slug_iexact=slug)
+		tag = Tag.objects.get(slug__iexact=slug)
 		bound_form = TagForm(instance=tag)
 		return render(request, 'blog/tag_update_form.html', context={'form': bound_form, 'tag': tag})
 
@@ -45,6 +61,7 @@ class TagUpdate(View):
 		tag = Tag.objects.get(slug__iexact=slug)
 		bound_form = TagForm(request.POST, instance=tag)
 
-		if bound_form.is_valud():
+		if bound_form.is_valid():
 			update_tag = bound_form.save()
-		return render(request, 'blog/tag_update_url', context={'form': bound_form, 'tag': tag})
+			return redirect(update_tag)
+		return render(request, 'blog/tag_update_form.html', context={'form': bound_form, 'tag': tag})
