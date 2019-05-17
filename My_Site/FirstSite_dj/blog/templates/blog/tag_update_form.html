@@ -2,12 +2,11 @@
 
 {% load static %}
 
-{% block stylesheet %}
 <link rel="stylesheet" href="{% static 'css/tag&post_create.css' %}">
 {% endblock %}
 
 {% block title %}
-	Tag "{{ tag.title }}" update
+	Tag "{{ tag.title }}"
 {% endblock %}
 
 {% block content %}
@@ -30,7 +29,7 @@
 			</div>
 
 			{% endfor %}
-				<button type='submit' class='btn btn-primary'>Update tag</button>
+				<button type='submit' class='btn btn-primary'>Create tag</button>
 		</div>
 	</form>
 
